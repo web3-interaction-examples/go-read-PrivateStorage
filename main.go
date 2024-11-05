@@ -55,11 +55,22 @@ func main() {
 
 		// parse data (reverse order)
 		/*
-			struct LockInfo {
-				address user;      // 20 bytes
-				uint64 startTime;  // 8 bytes
-				uint256 amount;    // 32 bytes
-			}
+				struct LockInfo {
+					address user;      // 20 bytes
+					uint64 startTime;  // 8 bytes
+					uint256 amount;    // 32 bytes
+				}
+			Slot 0 (32 bytes):
+			+---------------+------------------+--------------------------------+
+			| Padding       | startTime        | user                          |
+			| (4 bytes)     | (8 bytes)       | (20 bytes)                    |
+			+---------     +------------------+--------------------------------+
+
+			Slot 1 (32 bytes):
+			+----------------------------------------------------------------+
+			| amount                                                           |
+			| (32 bytes)                                                       |
+			+----------------------------------------------------------------+
 		*/
 		user := common.BytesToAddress(data[12:32])     // last 20 bytes is user address
 		startTime := new(big.Int).SetBytes(data[4:12]) // middle 8 bytes is startTime
