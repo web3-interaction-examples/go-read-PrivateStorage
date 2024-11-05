@@ -1,6 +1,15 @@
 # go-read-PrivateStorage
 
 
+## Struct
+```
+struct LockInfo {
+  address user;      // 20 bytes
+  uint64 startTime;  // 8 bytes
+  uint256 amount;    // 32 bytes
+}
+```
+
 ## Format
 ```
 Slot 0 (32 bytes):
