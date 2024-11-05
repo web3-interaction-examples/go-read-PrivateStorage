@@ -139,3 +139,6 @@ locks[10]:
   Debug - slot2 data (amount): 00000000000000000000000000000000000000000000000098a7d9b8314c0000
 ----------------------------------------
 ```
+
+## Viem
+- https://github.com/web3-interaction-examples/viem-read-PrivateStorage
